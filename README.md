@@ -15,7 +15,7 @@ docker build --rm -t sequenceiq/logrotate .
 ```bash```
 docker run --name=logrotate -d \
     -v /var/lib/docker/containers:/var/lib/docker/containers:rw \
-    sequenceiq/logrotation
+    sequenceiq/logrotate
 ```
 
 This will rotate container logs and save them into `/var/log/docker-archive` (in the container). You are able to add a volume to store logs on the host. (`-v /my/local/filesystem/archives:/var/log/docker-archive` )
@@ -29,5 +29,5 @@ docker run --name=logrotate -d
     -v /var/lib/docker/containers:/var/lib/docker/containers:rw \
     -v /my/local/filesystem/archives:/var/log/docker-archive \
     -v /my/conf/path/logrotate.conf:/logrotate.conf
-    sequenceiq/logrotation
+    sequenceiq/logrotate
 ```
