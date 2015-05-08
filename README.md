@@ -1,6 +1,11 @@
 # docker-logrotate
 Logrotation for docker containers
 
+## Pull the image from Docker Repository
+```bash```
+docker pull sequenceiq/logrotate
+```
+
 ## Building the image
 ```bash```
 docker build --rm -t sequenceiq/logrotate .
