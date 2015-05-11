@@ -7,6 +7,6 @@ else
   echo "CRON_EXPR environment variable set to $CRON_EXPR"
 fi
 
-echo "$CRON_EXPR	/logrotate.sh" >> /etc/crontabs/root
+echo "$CRON_EXPR	/usr/sbin/logrotate -v -f /etc/logrotate.conf" >> /etc/crontabs/root
 
 crond -f
