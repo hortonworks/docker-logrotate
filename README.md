@@ -14,6 +14,7 @@ docker build --rm -t sequenceiq/logrotate .
 ## Running the image
 ```bash```
 docker run --name=logrotate -d \
+    -e LOGROTATE_LOGFILES=/var/lib/docker/containers/*/*.log
     -v /var/lib/docker/containers:/var/lib/docker/containers:rw \
     sequenceiq/logrotate
 ```
@@ -25,7 +26,9 @@ Notice that it rotates without considering the file size, in case of you want to
 ```bash```
 docker run --name=logrotate -d
     -e CRON_EXPR="* * * * *" \
+    -e LOGROTATE_LOGFILES=/var/lib/docker/containers/*/*.log
+    -e LOGROTATE_FILESIZE=10M
+    -e LOGROTATE_FILENUM=5
     -v /var/lib/docker/containers:/var/lib/docker/containers:rw \
-    -v /my/conf/path/logrotate.conf:/logrotate.conf
     sequenceiq/logrotate
 ```
