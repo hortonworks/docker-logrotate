@@ -24,4 +24,6 @@ fi
 
 echo "$CRON_EXPR	/usr/sbin/logrotate -v /etc/logrotate.conf" >> /etc/crontabs/root
 
-crond -f
+(crond -f) & CRONPID=$!
+trap "kill $CRONPID; wait $CRONPID" SIGINT SIGTERM
+wait $CRONPID
