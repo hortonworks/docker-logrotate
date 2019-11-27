@@ -1,5 +1,5 @@
-FROM gliderlabs/alpine:3.1
-MAINTAINER SequenceIQ
+FROM alpine:3.10.3
+MAINTAINER Hortonworks
 
 RUN apk --update add bash logrotate
 
